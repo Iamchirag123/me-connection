@@ -1,0 +1,164 @@
+{% load static %}
+<html>
+   <head>
+      
+      
+      <link rel="stylesheet" type="text/css" href="{% static '/css/template_normal.min.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static '/css/custom.css' %}" />
+      
+      <title> {{data.fullname}} | {{data.job_role}} | Save Contact</title>
+      
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="robots" content="noindex, nofollow"/>
+      <meta name="apple-mobile-web-app-capable" content="yes"/>
+      <link rel="icon" href="../assets/images/fav-icon.png" type="image/png"/>
+      
+      <meta property="og:url" content="http://www.synergyfinancial.in"/>
+      <meta property="og:title" content="{{data.fullname}}"/>
+      <meta property="og:description" content="{{data.job_role}}"/>
+      <meta property="og:image" content="{{data.profile.url}}"/>
+      <meta property="og:image:width" content="200"/>
+      <meta property="og:image:height" content="200"/>
+      <!-- Twitter Card data -->
+      
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:url" content="http://www.synergyfinancial.in">
+      <meta name="twitter:title" content="{{data.fullname}}">
+      <meta name="twitter:description" content="{{data.job_role}}">
+      <meta name="twitter:image" content="{{data.profile.url}}">
+      <meta name="twitter:image:width" content="200">
+      <meta name="twitter:image:height" content="200">
+      <!-- Schema.org markup for Google+ -->
+      
+      <meta itemprop="name" content="{{data.fullname}}">
+      <meta itemprop="description" content="{{data.job_role}}">
+      <meta itemprop="image" content="{{data.job_role}}">
+
+
+   </head>
+   <body id="dvcard-body">
+
+      <div id="overlay" style="background-image:url('{{data.company.logo.url}}')"> </div>
+
+      <div class="vcard-template style2">
+         <div class="page-home page">
+            <div class="vcard-header gradient-red-orange-bg" style="background:{{data.company.color}}">
+               <div class="vcard-header-wrapper">
+                  <div class="vcard-top-info">
+                     <h4 class="top"></h4>
+                     <div class="img" > <img src="{{data.profile.url}}" style="width: 100%;" /> </div>
+                     <h2 class="name">{{data.fullname}} </h2>
+                     <h4 class="name">{{data.company.name}}</h4>
+                     <h6 class="title">{{data.job_role}}</h6>
+                  </div>
+                  <div class="vcard-functions">
+                     <div class="vcard-functions-wrapper">
+                        
+                        <a href="tel:{{data.phone_no}}">
+                            <i class="icon-phone dynamicTextColor"></i>
+                            <small class="dynamicTextColor">Call</small>
+                        </a>
+                        
+                        <a href="mailto:{{data.email}}?subject=From my vCard&body=" target="_newEmail">
+                            <i class="icon-send dynamicTextColor"></i>
+                            <small class="dynamicTextColor">Email</small>
+                        </a>
+                        
+                        <a>
+                            <i class=" icon-map-pin dynamicTextColor"></i>
+                            <small class="dynamicTextColor">Directions</small>
+                        </a>
+                        
+                        <a href="#" class="savecontact_header" download>
+                            <i class="iconFab icon-fab-share-savecontact"></i>
+                            <small class="dynamicTextColor">Save Contact</small>
+                        </a>
+
+
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="vcard-body-wrapper">
+               <div class="vcard-body">
+                  <div id="dvcard-details">
+
+                    <div class="vcard-row">
+                        <i class="icon icon-birthday"></i>
+                        <h4>{{data.dob}}</h4>
+                        <small>Birthday</small>
+                     </div>
+
+                     <div class="vcard-separator"></div>
+                     <div class="vcard-row">
+                        <i class="icon icon-phone"></i>
+                        <h4><a href="tel:{{data.phone_no}}">{{data.phone_no}}</a></h4>
+                        <small>Mobile</small>
+                     </div>
+
+                     <div class="vcard-separator"></div>
+                     <div class="vcard-row">
+                        <i class="icon icon-mail"></i>
+                        <h4><a href="mailto:{{data.email}}" target="_newLink">{{data.email}}</a></h4>
+                        <small>Email</small>
+                     </div>
+                     
+                     <div class="vcard-separator"></div>
+                     <div class="vcard-row">
+                        <i class="icon icon-work"></i>
+                        <h4>{{data.company.name}}</h4>
+                        <small>{{data.job_role}}</small>
+                     </div>
+
+                     <div class="vcard-separator"></div>
+                     <div class="vcard-row">
+                        <i class="icon-map-pin"></i>
+                        <h4>{{data.company.address}}</h4>
+                     </div>
+
+                     <div class="vcard-separator"></div>
+                     <div class="vcard-row">
+                        <i class="icon icon-earth"></i>
+                        <h4><a href="{{data.company.website}}" target="_newLink">{{data.company.website}}</a></h4>
+                        <small>Website</small>
+                     </div>
+
+                     <div class="vcard-separator"></div>
+                     <div id="socialmedialinksContainer">
+                        <div class="vcard-social" style="margin-bottom:20px;">
+                           <div class="socialMedia-container">
+                              <label>CONNECT US</label>
+                              
+                              <i class="icon-social-media"></i>
+                              <div class="channels-padding mt-0">
+
+                              {% for social in sociallink %}
+
+                                <a href="{{social.link}}" class="channel-container" target="_blank">
+                                    <div class="table-cell-middle pl-55 pos-relative">
+                                       <div class="channel-bgd-{{social.platform}}">
+                                          <i class="icon-social-{{social.platform}}"></i>
+                                       </div>
+                                    </div>
+                                 </a>
+
+                              {% endfor %}
+
+
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="{% static '/js/custom.js' %}"></script>
+    </body>
+</html>
