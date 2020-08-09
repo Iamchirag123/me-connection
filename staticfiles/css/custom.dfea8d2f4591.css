@@ -1,0 +1,13 @@
+a.savecontact_header, a.savecontact_header:hover {
+    background: #ff2047;
+}
+
+div#overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1111;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position: center;
+}
